@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+/* Import fonts */
+@import "@fontsource/outfit";
+@import "@fontsource/poppins";
+@import "@fontsource/inter";
+
+/* Tailwind v4 theme configuration */
+@theme {
+  --font-outfit: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-poppins: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+}

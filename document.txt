@@ -1,0 +1,39 @@
+Recommended Font Usage:
+1. Outfit - For Headings & Branding ✅
+
+Main logo/brand name
+Page titles (e.g., "Find Your Perfect Hotel")
+Section headings
+Call-to-action buttons
+Why: Clean, modern, geometric - gives professional, trustworthy feel
+
+2. Poppins - For Subheadings & Features ✅
+
+Card titles (hotel names, movie titles)
+Feature highlights
+Price tags
+Navigation menu
+Why: Friendly and stylish, great for catching attention without being too formal
+
+3. Inter - For Body Text & UI Elements ✅
+
+Descriptions and details
+Form inputs and labels
+Terms and conditions
+Dates, times, addresses
+Search results text
+Why: Highly readable, excellent for long paragraphs and small text
+
+🏨 WEBSITE HEADER
+├─ Logo: Outfit (bold, large)
+├─ Navigation: Poppins (medium)
+
+📋 BOOKING CARD
+├─ Hotel Name: Poppins (bold)
+├─ Location: Inter (regular)
+├─ Price: Poppins (bold, large)
+├─ Description: Inter (regular)
+└─ "Book Now" Button: Outfit (bold)
+
+📝 FORMS & INPUTS
+└─ All text: Inter (labels, inputs, validation)
