@@ -3,12 +3,13 @@ export const Card = ({
   variant = 'default',
   hover = false,
   onClick,
+  bg = 'bg-white',
   className = '' 
 }) => {
   const variants = {
-    default: 'bg-white border border-gray-200',
-    elevated: 'bg-white shadow-lg',
-    outlined: 'bg-white border-2 border-blue-500',
+    default: `${bg} border border-gray-200`,
+    elevated: `${bg} shadow-lg`,
+    outlined: `${bg} border-2 border-blue-500`,
     gradient: 'bg-gradient-to-br from-blue-50 to-purple-50 border border-gray-200'
   };
 
