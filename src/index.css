@@ -11,3 +11,14 @@
   --font-poppins: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
+
+@layer utilities{
+
+  .input-label{
+    @apply text-sm sm:text-sm md:text-base
+  }
+
+  .header-text {
+    @apply text-lg sm:text-xl md:text-2xl font-outfit font-bold
+  }
+}
