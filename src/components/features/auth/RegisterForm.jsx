@@ -7,7 +7,7 @@ import { OAuth } from "./OAuth";
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
-  const [error, setError] = useState("");
+  const [error, setError] = useState({});
   const [showVerifyOtpModal, setShowVerifyOtpModal] = useState(false);
   const [formData, setFormdata] = useState({
     name: "",
@@ -48,17 +48,7 @@ export const RegisterForm = () => {
       onChange: (e) => {
         setFormdata({ ...formData, confirmPassword: e.target.value });
       },
-    },
-    {
-      label: "Username",
-      placeholder: "Enter your name",
-      required: false,
-      icon: <User size={20} />,
-      value: formData.name,
-      onChange: (e) => {
-        setFormdata({ ...formData, name: e.target.value });
-      },
-    },
+    }
   ];
 
   const handleLogin = () => {
@@ -67,20 +57,20 @@ export const RegisterForm = () => {
       formData.password.trim().length <= 0 ||
       formData.confirmPassword.trim().length <= 0
     ) {
-        setError("Please fill all the fields");
-        return;
-
-    } else if (formData.password.trim().length < 8) {
-        setError("Password length should be greater than 8");
-        return;
-
-    } else if (formData.password !== formData.confirmPassword) {
-        setError("Confirm password does not match");
+        setError({default:"Please fill all the fields"});
         return;
 
     } else if(!formData.email.includes("@") || !formData.email.includes(".")){
-      setError("Please enter a valid email");
+      setError({email:"Please enter a valid email"});
       return;
+
+    } else if (formData.password.trim().length < 8) {
+        setError({password:"Password length should be greater than 8"});
+        return;
+
+    } else if (formData.password !== formData.confirmPassword) {
+        setError({confirmPassword:"Confirm password does not match"});
+        return;
 
     } else {
         setShowVerifyOtpModal(true);
@@ -104,7 +94,7 @@ export const RegisterForm = () => {
           Get Started
         </h2>
 
-        {error != "" ? <Alert type="error" message={error} /> : <></>}
+        {error.default?.length>0 && <Alert type="error" message={error.default} />}
 
         <form action="" className="space-y-3">
           {formFields.map((item, i) => (
@@ -117,6 +107,10 @@ export const RegisterForm = () => {
               onChange={item.onChange}
               value={item.value}
               icon={item.icon}
+              error={
+                error.email?.length>0 && item.label === "Email" ? error.email : 
+                error.password?.length>0 && item.label==="Password"? error.password : 
+                error.confirmPassword?.length>0 && item.label==="Confirm Password"? error.confirmPassword : null}
             />
           ))}
         </form>

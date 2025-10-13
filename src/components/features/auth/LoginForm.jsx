@@ -8,7 +8,7 @@ import { OAuth } from "./OAuth";
 
 export const LoginForm = () => {
   const navigate = useNavigate();
-  const [error, setError] = useState(null);
+  const [error, setError] = useState({});
   const [isSendOtpModal,setIsSendOtpModal] = useState(false);
   const [isVerifyOtpModal, setIsVerifyOtpModal] = useState(false);
   const [isResetPassword, setIsResetPassword] = useState(false);
@@ -38,11 +38,17 @@ export const LoginForm = () => {
   ];
 
   const handleLogin = () => {
-    if (
-      formData.email.trim().length <= 0 ||
-      formData.password.trim().length <= 0
-    ) {
-      setError("Please fill all the fields");
+    if (formData.email.trim().length <= 0 && formData.password.trim().length <= 0 ) {
+      setError({default:"Please fill all the fields"});
+      return;
+    } else if(formData.email.trim().length <= 0){
+      setError({...error,email:"Please enter your email"});
+    } else if(!formData.email.includes("@") || !formData.email.includes(".")){
+      setError({email:"Please enter a valid email"});
+    } else if(formData.password.trim().length <= 0){
+      setError({password:"Please enter your password"});
+    } else {
+      console.log("success")
       return;
     }
   };
@@ -73,7 +79,7 @@ export const LoginForm = () => {
           Welcome Back
         </h2>
 
-        {error && <Alert type="error" message={error} />}
+        {error.default?.length>0 && <Alert type="error" message={error.default} />}
 
         <form action="" className="space-y-3">
           {formFields.map((item, i) => (
@@ -86,7 +92,7 @@ export const LoginForm = () => {
               onChange={item.onChange}
               value={item.value}
               icon={item.icon}
-              // error={error}  TODO
+              error={error.email?.length>0 && item.label === "Email" ? error.email : error.password?.length>0 && item.label==="Password"? error.password : null}
             />
           ))}
         </form>
