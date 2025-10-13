@@ -53,7 +53,6 @@ export const VerifyOtp = ({ isOpen, onClose, onResend, mail }) => {
     return (
       fMail[0].substring(0, 3) +
       "***" +
-      fMail[0].substring(fMail[0].length - 3, fMail[0].length) +
       "@" +
       fMail[1]
     );

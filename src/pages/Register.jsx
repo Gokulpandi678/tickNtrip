@@ -20,8 +20,8 @@ export const Register = () => {
 
   return (
     <div className="flex items-center min-h-screen justify-center">
-      <div className="flex items-center p-10 space-x-15 bg-neutral-300 rounded-2xl">
-        <div className="space-y-3 w-100">
+      <div className="flex items-center lg:p-10 space-x-15 lg:bg-neutral-300 rounded-2xl flex-wrap justify-center drop-shadow-neutral-400 drop-shadow-lg">
+        <div className="space-y-3 w-100 hidden lg:block">
           <p className="font-poppins text-4xl font-bold">
             Your Journey Starts Here
           </p>

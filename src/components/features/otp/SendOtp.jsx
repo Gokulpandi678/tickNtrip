@@ -23,13 +23,13 @@ export const SendOtp = ({ isOpen, onClose }) => {
     <Card>
       <div className="space-y-3">
         <div>
-        <h3 className="header-text">Enter your email</h3>
         {/* <h3 className="text-sm">
           We will send you an OTP to verify your email
        </h3> */}
         </div>
         {error !== "" && <Alert type="error" message={error} />}
         <Input
+          label="Enter your email"
           type="text"
           icon={<Mail size={20} />}
           placeholder="sample@xyz.com"

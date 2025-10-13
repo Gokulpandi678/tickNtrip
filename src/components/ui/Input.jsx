@@ -35,7 +35,7 @@ export const Input = ({
   }
 
   return (
-    <div className={`w-full relative ${className}`}>
+    <div className={`lg:w-100 w-full relative ${className}`}>
       {label && (
         <label className="block input-label font-poppins font-semibold text-gray-700 mb-2">
           {label} {required && <span className="text-red-500">*</span>}
